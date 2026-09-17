@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Kaniha4/24MIS0398_Assessment7_P1.git'
+                git branch: 'main', url: 'https://github.com/harshavardhanchirra/24MIS0062_ASS7-pro1.git'
             }
         }
 
