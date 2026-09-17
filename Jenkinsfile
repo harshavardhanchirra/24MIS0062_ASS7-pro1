@@ -8,19 +8,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/harshavardhanchirra/24MIS0062_ASS7-pro1.git'
+                git branch: 'main', url: 'https://github.com/Kaniha4/24MIS0398_Assessment7_P1.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat 'javac StudentManagement.java'
             }
         }
 
         stage('Show Parameter') {
             steps {
                 echo "Selected environment: ${params.ENVIRONMENT}"
-            }
-        }
-
-        stage('Build for Environment') {
-            steps {
-                echo "Building the application for the ${params.ENVIRONMENT} environment..."
+                echo "Student Management System built for ${params.ENVIRONMENT}"
             }
         }
     }
