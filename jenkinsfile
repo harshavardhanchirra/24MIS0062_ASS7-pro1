@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'DEPARTMENT', choices: ['cse', 'ece', 'mech'], description: 'Select the Student Department Environment')
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/harshavardhanchirra/24MIS0062_ASS7-pro1.git'
+            }
+        }
+        stage('Show Selected Dept') {
+            steps {
+                echo "Target Department Selected: ${params.DEPARTMENT}"
+            }
+        }
+        stage('Build Department Instance') {
+            steps {
+                echo "Compiling Student Management System for the ${params.DEPARTMENT} department..."
+            }
+        }
+    }
+}
